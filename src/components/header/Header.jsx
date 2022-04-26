@@ -1,12 +1,12 @@
 import SearchIcon from '@material-ui/icons/Search';
 import { AppBar, Avatar, Button, InputBase, Link, Menu, MenuItem, Toolbar, Typography } from '@mui/material'
-import { Box, color, fontFamily, fontWeight } from '@mui/system';
+import { Box, color, fontFamily, fontWeight, maxWidth } from '@mui/system';
 import React from 'react';
 import logo from '../../images/download.png'
 import husklog from '../../images/husk.png'
 import { makeStyles } from '@mui/styles';
-import { EnergySavingsLeafRounded, Login } from '@mui/icons-material';
-import MenuIcon from '@mui/icons-material/Menu';
+import { EnergySavingsLeafRounded, Login, Menu as MenuIcon } from '@mui/icons-material';
+// import { Menu as MenuIcon } from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
 // import { ClickAwayListener, Divider, Grow, MenuList, Paper, Popper } from '@mui/material';
 
@@ -65,8 +65,9 @@ const useStyles = makeStyles({
             color: 'black',
         }
     },
-    menuSmall:{
+    menuSmall: {
         display: 'flex',
+        marginRight: 20,
 
     },
     search: {
@@ -91,15 +92,12 @@ const useStyles = makeStyles({
         width: '100%',
 
     },
-    MenuIcon: {
-        color: 'black',
-        
-        backgroundColor: 'black',
-        '& .MuiButtonBase-root': {
-            color: 'black',
-            border: '4px solid black'
-
-        }
+    Menuicon: {
+        cursor: 'pointer',
+        position: 'absolute',
+        // zIndex: 999,
+        right: 0,
+        left: 8,
     }
 })
 const Header = () => {
@@ -115,7 +113,7 @@ const Header = () => {
         searchIcon,
         inputInput,
         inputRoot,
-        MenuIcon
+        Menuicon
     } = useStyles({});
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -137,7 +135,7 @@ const Header = () => {
         <div>
             <Toolbar className={head}  >
                 <div className={heads}  >
-                    <Box marginRight='2rem' display='flex' >
+                    <Box marginRight='1rem' display='flex' >
                         <div className={energySavingsLeafRounded}>
                             <EnergySavingsLeafRounded />
                         </div>
@@ -152,7 +150,7 @@ const Header = () => {
                             Create account
                         </a>
                     </Box>
-                    <Box marginRight='2rem' display='flex'>
+                    <Box marginRight='1rem' display='flex'>
                         <a href='https://hugsi.green/'
                             style={{
                                 color: 'black',
@@ -166,59 +164,99 @@ const Header = () => {
                     </Box>
                 </div>
             </Toolbar>
-            <AppBar sx={{
-                backgroundColor: 'white', marginTop: '3.7rem', padding: '0rem'
+            <AppBar gutterBottom component="div" sx={{
+                backgroundColor: 'white', padding: '0', top: '0', zIndex: "0", position: "static"
             }}
             >
-                <Toolbar className={roots} disableGutters >
+                <Toolbar className={roots}  >
                     <div className={menuu} >
-                        <Typography
-                            variant="subtitle1"
-                            noWrap
-                            component="div"
-                            sx={{
-                                mr: 2, display: { xs: 'none', md: 'flex' },
-                                // '& .MuiList-root-MuiMenu-list': {
-                                //     backgroundColor: '#99c93c'
-                                // }
-                            }}
-                        >
-                            <img
-                                src={logo}
-                                alt="HUGSI logo"
-                                style={{ marginLeft: 10, marginRight: 20, width: '6rem', }}
-                            />
-                        </Typography>
+
                         <Box sx={{ flexGrow: 1, color: 'black', display: { xs: 'flex', md: 'none' } }}>
+                            <Typography
+                                variant="subtitle1"
+                                noWrap
+                                component="div"
+                                sx={{
+                                    mr: 2,
+                                    // '& .MuiList-root-MuiMenu-list': {
+                                    //     backgroundColor: '#99c93c'
+                                    // }
+                                }}
+                            >
+                                <img
+                                    src={logo}
+                                    alt="HUGSI logo"
+                                    style={{ marginLeft: 0, marginRight: 10, width: '6rem' }}
+                                />
+                            </Typography>
+                            <div>
+                                <span
+                                    style={{
+                                        position: 'absolute',
+                                        width: '14rem',
+                                        height: '1.8rem',
+                                        background: 'white',
+                                        border: '1px solid #c9cdd0',
+                                        borderRadius: '1rem',
+                                        display: 'flex',
+                                        color: '#5f6a74',
+                                        fontSize: '16px',
+                                    }}
+                                ></span>
+                                <div className={search}>
+                                    <div className={searchIcon}>
+                                        <SearchIcon />
+                                    </div>
+                                    <InputBase
+                                        placeholder="Search"
+                                        classes={{
+                                            root: inputRoot,
+                                            input: inputInput,
+                                        }}
+                                        inputProps={{ 'aria-label': 'search' }}
+                                    />
+                                </div>
+                            </div>
                             <IconButton
-                                size="x-large"
-                                aria-controls="menu-appbar"
+                                size="large"
+                                // aria-label="account of current user"
+                                aria-controls="menu-bar"
                                 aria-haspopup="true"
                                 onClick={handleOpenNavMenu}
+                                color="inherit"
+                                aria-label="open drawer"
                             >
-                                <MenuIcon className={MenuIcon} />
+                                {/* <MenuIcon /> */}
+                                <MenuIcon className={Menuicon} />
                             </IconButton>
+
                             <Menu
-                                id="menu-appbar"
+                                id="menu-bar"
                                 anchorEl={anchorElNav}
                                 anchorOrigin={{
                                     vertical: 'bottom',
                                     horizontal: 'left',
                                 }}
                                 keepMounted
-                                transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'left',
-                                }}
+                                // transformOrigin={{
+                                //     vertical: 'top',
+                                //     horizontal: 'left',
+                                // }}
                                 open={Boolean(anchorElNav)}
                                 onClose={handleCloseNavMenu}
                                 sx={{
-                                    display: { xs: 'block', md: 'none' },
+                                    display: { xs: 'flex', md: 'none' },
                                     '& .MuiTypography-root': {
-                                        color: 'black',
+                                        color: 'white',
+                                        alignItems: 'center',
+                                        flexDirection: 'column',
                                         backgroundColor: '#99c93c',
                                         textDecoration: 'none',
-
+                                        fontSize: '1.2rem',
+                                        justifyContent: 'center',
+                                        width: '100rem',
+                                        height: '2.5rem',
+                                        position: 'relative'
                                     }
                                 }}
                             >
@@ -228,7 +266,7 @@ const Header = () => {
                                     component="div"
                                     sx={{
                                         mr: 0, display: { xs: 'none', md: 'flex' },
-                                        
+
                                     }}
                                 >
                                     <img
@@ -258,7 +296,7 @@ const Header = () => {
                                         {' '}
                                         <Box onClick={handleClick}
                                             aria-haspopup="true"
-                                            aria-expanded={open ? 'true' : undefined} fontSize="16px" >
+                                            aria-expanded={open ? 'true' : undefined}  >
                                             Insights
                                         </Box>
                                         <Menu
@@ -268,12 +306,12 @@ const Header = () => {
                                             onClick={handleClose}
                                             PaperProps={{
                                                 sx: {
-                                                    width: '100%',
+                                                    width: 'fit-content',
                                                     // border: '1px solid grey',
                                                     filter: 'drop-shadow(0px 1px 1px rgba(0,0,0,0.32))',
                                                     mt: 2.8,
                                                     '& .MuiList-root': {
-                                                        display: 'flex',
+                                                        display: 'block',
                                                         padding: 0,
                                                         justifyContent: 'center',
                                                     }
@@ -314,41 +352,51 @@ const Header = () => {
                                     </Typography>
                                 </Link>
                                 <Link to="/community" >
-                                    <Typography variant='subtitle1'>
+                                    <Typography variant='subtitle1' sx={{ pb: '10rem' }}>
                                         {' '}
-                                        <Box >
+                                        <Box>
                                             Community
                                         </Box>
                                     </Typography>
                                 </Link>
-                                <div>
-                                    <Typography
-                                        variant="subtitle1"
-                                        style={{
-                                            color: 'black',
-                                            display: 'flex',
-                                        }}
-                                    >
-                                        <Box style={{ marginRight: '1.8rem', marginTop: '0.4rem' }}>Powered by</Box>
-                                        <a
-                                            href="https://husqvarna.com"
-                                            target="_blank"
-                                        >
-                                            <img
-                                                src={husklog}
-                                                alt="Husqvarna logo"
-                                                style={{ width: '8rem', height: 'auto', marginTop: '0.4rem' }}
-                                            />
-                                        </a>
-                                    </Typography>
-                                </div>
+                                <Box >
+                                    <Box sx={{ backgroundColor: '#424242;', p: '2rem', color: 'white', justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
+                                        <Box
+                                            style={{
+                                                margin: '0 1rem'
+                                            }}  >
+                                            Powered by
+                                        </Box>
+                                        <img
+                                            src={husklog}
+                                            alt="Husqvarna logo"
+                                            style={{ width: '8rem', height: 'auto', }}
+                                        />
+                                    </Box>
+                                </Box>
                             </Menu>
-
                         </Box>
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                            <Typography
+                                variant="subtitle1"
+                                noWrap
+                                component="div"
+                                sx={{
+                                    mr: 2, display: { xs: 'none', md: 'flex' },
+                                    // '& .MuiList-root-MuiMenu-list': {
+                                    //     backgroundColor: '#99c93c'
+                                    // }
+                                }}
+                            >
+                                <img
+                                    src={logo}
+                                    alt="HUGSI logo"
+                                    style={{ marginLeft: 10, width: '6rem', height: '1.7rem' }}
+                                />
+                            </Typography>
                             <div
                                 className={menuSmall}
-                                // id="menu-appbar"
+                            // id="menu-appbar"
                             // anchorEl={anchorElNav}
                             // anchorOrigin={{
                             //     vertical: 'bottom',
@@ -398,14 +446,14 @@ const Header = () => {
                                             onClick={handleClose}
                                             PaperProps={{
                                                 sx: {
-                                                   
+
                                                     // border: '1px solid grey',
                                                     // filter: 'drop-shadow(0px 1px 1px rgba(0,0,0,0.32))',
                                                     mt: 2.8,
                                                     '& .MuiList-root': {
-                                                        display: 'flex-box',
-                                                        padding: 0,
-                                                        justifyContent: 'center',
+                                                        display: 'flex',
+                                                        // padding: 0,
+                                                        // justifyContent: 'center',
 
                                                         // '&. MuiMenu-list': {
                                                         //     // padding: 0
@@ -477,62 +525,85 @@ const Header = () => {
                                     </Typography>
                                 </Link>
                             </div>
+                            {/* <div>
+                                <Typography
+                                    variant="subtitle2"
+                                    style={{
+                                        color: 'black',
+                                        display: 'flex',
+                                    }}
+                                >
+                                    <Box style={{ marginRight: '1.8rem', marginTop: '0.4rem' }}>Powered by</Box>
+                                    <a
+                                        href="https://husqvarna.com"
+                                        target="_blank"
+                                    >
+                                        <img
+                                            src={husklog}
+                                            alt="Husqvarna logo"
+                                            style={{ width: '8rem', height: 'auto', marginTop: '0.4rem' }}
+                                        />
+                                    </a>
+                                </Typography>
+                            </div> */}
+
+                            {/* </div> */}
+                            {/* </Box> */}
+
+                            <div>
+                                <span
+                                    style={{
+                                        position: 'absolute',
+                                        width: '14rem',
+                                        height: '1.8rem',
+                                        background: 'white',
+                                        border: '1px solid #c9cdd0',
+                                        borderRadius: '1rem',
+                                        display: 'flex',
+                                        color: '#5f6a74',
+                                        fontSize: '16px',
+                                    }}
+                                ></span>
+                                <div className={search}>
+                                    <div className={searchIcon}>
+                                        <SearchIcon />
+                                    </div>
+                                    <InputBase
+                                        placeholder="Search"
+                                        classes={{
+                                            root: inputRoot,
+                                            input: inputInput,
+                                        }}
+                                        inputProps={{ 'aria-label': 'search' }}
+                                    />
+                                </div>
+                            </div>
+                            <div>
+                                <Typography
+                                    variant="subtitle2"
+                                    style={{
+                                        color: 'black',
+                                        display: 'flex',
+                                    }}
+                                >
+                                    <Box style={{ marginRight: '1.8rem', marginTop: '0.4rem' }}>Powered by</Box>
+                                    <a
+                                        href="https://husqvarna.com"
+                                        target="_blank"
+                                    >
+                                        <img
+                                            src={husklog}
+                                            alt="Husqvarna logo"
+                                            style={{ width: '8rem', height: 'auto', marginTop: '0.4rem' }}
+                                        />
+                                    </a>
+                                </Typography>
+                            </div>
                         </Box>
                     </div>
-                    {/* </Box> */}
-
-                    <div>
-                        <span
-                            style={{
-                                position: 'absolute',
-                                width: '14rem',
-                                height: '1.8rem',
-                                background: 'white',
-                                border: '1px solid #c9cdd0',
-                                borderRadius: '1rem',
-                                display: 'flex',
-                                color: '#5f6a74',
-                                fontSize: '16px',
-                            }}
-                        ></span>
-                        <div className={search}>
-                            <div className={searchIcon}>
-                                <SearchIcon />
-                            </div>
-                            <InputBase
-                                placeholder="Search"
-                                classes={{
-                                    root: inputRoot,
-                                    input: inputInput,
-                                }}
-                                inputProps={{ 'aria-label': 'search' }}
-                            />
-                        </div>
-                    </div>
-                    <div>
-                        <Typography
-                            variant="subtitle2"
-                            style={{
-                                color: 'black',
-                                display: 'flex',
-                            }}
-                        >
-                            <Box style={{ marginRight: '1.8rem', marginTop: '0.4rem' }}>Powered by</Box>
-                            <a
-                                href="https://husqvarna.com"
-                                target="_blank"
-                            >
-                                <img
-                                    src={husklog}
-                                    alt="Husqvarna logo"
-                                    style={{ width: '8rem', height: 'auto', marginTop: '0.4rem' }}
-                                />
-                            </a>
-                        </Typography>
-                    </div>
-                </Toolbar>
-            </AppBar>
-        </div>
+                </Toolbar >
+            </AppBar >
+        </div >
     );
 }
 
