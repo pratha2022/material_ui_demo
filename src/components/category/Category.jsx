@@ -1,4 +1,4 @@
-import { Box, Button, ClickAwayListener, Grid, Tooltip, Typography } from '@mui/material';
+import { Box, Button, ClickAwayListener, Grid, Popover, Tooltip, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import PercentIcon from '@mui/icons-material/Percent';
 import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';
@@ -11,7 +11,7 @@ import React from 'react'
 import { width } from '@mui/system';
 const useStyles = makeStyles({
     catdiv: {
-        margin: 'auto 2.8rem '
+        margin: 'auto 3rem '
     },
     category: {
         paddingBottom: '3rem',
@@ -27,11 +27,12 @@ const useStyles = makeStyles({
             borderRadius: '0.5rem',
             width: '1rem',
             height: '1rem',
-            // display: inline - block;
+            // marginLeft:{xs:'none', md: '-4rem'} ,
+            marginTop: '1rem',
+            // display: 'inline-block',
             fill: 'white'
         }
     },
-
 
 })
 
@@ -54,16 +55,17 @@ const Category = () => {
 
     return (
         <div className={catdiv}>
-            <Typography variant='h4' sx={{ textAlign: 'left' }}>Categories</Typography>
-            <Grid container justifyContent="space-between"  >
+            <Typography variant='h4' sx={{ textAlign: 'left', color: 'rgb(66, 66, 66)', fontWeight: 600 }}>Categories</Typography>
+            <Grid container justifyContent="space-between" marginTop='2rem'  >
                 <Grid item className={category} >
                     <Box><PercentIcon sx={{ color: 'rgb(153, 201, 60)', width: '3rem', height: '4rem' }} /></Box>
-                    <Box color='#868686' fontSize="1.05rem" maxWidth="19rem">Highest percentage of urban green space
+                    <Box color='#868686' fontSize="1.05rem" marginLeft='1.2rem' maxWidth="16rem">Highest percentage of urban green space
                         <Typography sx={{
                             color: 'rgb(105, 141, 41)',
-                            fontSize: '1.2rem',
+                            fontSize: '1.05rem',
                             fontWeight: '600',
-                            mt: '1rem'
+                            mt: '1rem',
+
                         }} >
                             Utrechtse Heuvelrug Municipality
                         </Typography>
@@ -87,14 +89,14 @@ const Category = () => {
                 </Grid>
                 <Grid item className={category}>
                     <Box><SentimentSatisfiedAltIcon sx={{ color: 'rgb(153, 201, 60)', width: '3rem', height: '4rem' }} /></Box>
-                    <Box color='#868686' fontSize="1.05rem" maxWidth="19rem">Highest percentage of urban green space
+                    <Box color='#868686' fontSize="1.05rem" marginLeft='2rem' maxWidth="16rem">Best health of urban vegetation
                         <Typography sx={{
                             color: 'rgb(105, 141, 41)',
-                            fontSize: '1.2rem',
+                            fontSize: '1.05rem',
                             fontWeight: '600',
                             mt: '1rem'
                         }} >
-                            Utrechtse Heuvelrug Municipality
+                            Oudewater Municipality
                         </Typography>
                     </Box>
                     <Box>
@@ -105,14 +107,14 @@ const Category = () => {
                 </Grid>
                 <Grid item className={category}>
                     <Box><AccountTreeIcon sx={{ color: 'rgb(153, 201, 60)', width: '3rem', height: '4rem' }} /></Box>
-                    <Box color='#868686' fontSize="1.05rem" maxWidth="19rem">Highest percentage of urban green space
+                    <Box color='#868686' fontSize="1.05rem" marginLeft='2rem' maxWidth="16rem">Best distribution of urban green space
                         <Typography sx={{
                             color: 'rgb(105, 141, 41)',
-                            fontSize: '1.2rem',
+                            fontSize: '1.05rem',
                             fontWeight: '600',
                             mt: '1rem'
                         }} >
-                            Utrechtse Heuvelrug Municipality
+                            Lopik Municipality
                         </Typography>
                     </Box>
                     <Box>
@@ -123,14 +125,14 @@ const Category = () => {
                 </Grid>
                 <Grid item className={category}>
                     <Box><PersonIcon sx={{ color: 'rgb(153, 201, 60)', width: '3rem', height: '4rem' }} /></Box>
-                    <Box color='#868686' fontSize="1.05rem" maxWidth="19rem">Highest percentage of urban green space
+                    <Box color='#868686' fontSize="1.05rem" marginLeft='2rem' maxWidth="16rem">Most urban green space per capita
                         <Typography sx={{
                             color: 'rgb(105, 141, 41)',
-                            fontSize: '1.2rem',
+                            fontSize: '1.05rem',
                             fontWeight: '600',
                             mt: '1rem'
                         }} >
-                            Utrechtse Heuvelrug Municipality
+                            Lopik Municipality
                         </Typography>
                     </Box>
                     <Box>
@@ -141,14 +143,14 @@ const Category = () => {
                 </Grid>
                 <Grid item className={category}>
                     <Box><PushPinIcon sx={{ color: 'rgb(153, 201, 60)', width: '3rem', height: '4rem' }} /></Box>
-                    <Box color='#868686' fontSize="1.05rem" maxWidth="19rem">Highest percentage of urban green space
+                    <Box color='#868686' fontSize="1.05rem" marginLeft='2rem' maxWidth="16rem">Highest percentage of urban area covered by trees
                         <Typography sx={{
                             color: 'rgb(105, 141, 41)',
-                            fontSize: '1.2rem',
+                            fontSize: '1.05rem',
                             fontWeight: '600',
                             mt: '1rem'
                         }} >
-                            Utrechtse Heuvelrug Municipality
+                            Laren Municipality
                         </Typography>
                     </Box>
                     <Box>
@@ -159,14 +161,14 @@ const Category = () => {
                 </Grid>
                 <Grid item className={category}>
                     <Box><BarChartIcon sx={{ color: 'rgb(153, 201, 60)', width: '3rem', height: '4rem' }} /></Box>
-                    <Box color='#868686' fontSize="1.05rem" maxWidth="19rem">Highest percentage of urban green space
+                    <Box color='#868686' fontSize="1.05rem" marginLeft='2rem' maxWidth="16rem">Highest percentage of urban area covered by grass
                         <Typography sx={{
                             color: 'rgb(105, 141, 41)',
-                            fontSize: '1.2rem',
+                            fontSize: '1.05rem',
                             fontWeight: '600',
                             mt: '1rem'
                         }} >
-                            Utrechtse Heuvelrug Municipality
+                            Montfoort Municipality
                         </Typography>
                     </Box>
                     <Box>
