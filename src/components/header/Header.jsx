@@ -1,5 +1,5 @@
 import SearchIcon from '@material-ui/icons/Search';
-import { AppBar, Avatar, Button, InputBase, Link, Menu, MenuItem, Toolbar, Typography } from '@mui/material'
+import { AppBar, Avatar, Button, InputBase, Link, Menu, MenuItem, Tab, Toolbar, Typography } from '@mui/material'
 import { Box, color, fontFamily, fontWeight, maxWidth } from '@mui/system';
 import React from 'react';
 import logo from '../../images/download.png'
@@ -178,9 +178,7 @@ const Header = () => {
                                 component="div"
                                 sx={{
                                     mr: 2,
-                                    // '& .MuiList-root-MuiMenu-list': {
-                                    //     backgroundColor: '#99c93c'
-                                    // }
+                                    
                                 }}
                             >
                                 <img
@@ -226,7 +224,6 @@ const Header = () => {
                                 color="inherit"
                                 aria-label="open drawer"
                             >
-                                {/* <MenuIcon /> */}
                                 <MenuIcon className={Menuicon} />
                             </IconButton>
 
@@ -274,7 +271,7 @@ const Header = () => {
                                         alt="HUGSI logo"
                                     />
                                 </Typography>
-                                <Link to="/ranking"  >
+                                <Link>
                                     <Typography variant="subtitle1">
                                         {' '}
                                         <Box  >
@@ -282,7 +279,7 @@ const Header = () => {
                                         </Box>
                                     </Typography>
                                 </Link>
-                                <Link to="/about"  >
+                                <Link >
                                     <Typography variant="subtitle1">
                                         {' '}
                                         <Box  >
@@ -291,7 +288,7 @@ const Header = () => {
 
                                     </Typography>
                                 </Link>
-                                <Link to="/insights" >
+                                <Link >
                                     <Typography variant="subtitle1">
                                         {' '}
                                         <Box onClick={handleClick}
@@ -343,7 +340,7 @@ const Header = () => {
                                         </Menu>
                                     </Typography>
                                 </Link>
-                                <Link to="/groenestadchallenge"  >
+                                <Link  >
                                     <Typography variant="subtitle1">
                                         {' '}
                                         <Box >
@@ -351,7 +348,7 @@ const Header = () => {
                                         </Box>
                                     </Typography>
                                 </Link>
-                                <Link to="/community" >
+                                <Link  >
                                     <Typography variant='subtitle1' sx={{ pb: '10rem' }}>
                                         {' '}
                                         <Box>
@@ -383,9 +380,7 @@ const Header = () => {
                                 component="div"
                                 sx={{
                                     mr: 2, display: { xs: 'none', md: 'flex' },
-                                    // '& .MuiList-root-MuiMenu-list': {
-                                    //     backgroundColor: '#99c93c'
-                                    // }
+                               
                                 }}
                             >
                                 <img
@@ -414,7 +409,7 @@ const Header = () => {
                             // }}
                             >
 
-                                <Link to="/ranking"  >
+                                <Link   >
                                     <Typography variant="h6">
                                         {' '}
                                         <Box  >
@@ -422,7 +417,7 @@ const Header = () => {
                                         </Box>
                                     </Typography>
                                 </Link>
-                                <Link to="/about"  >
+                                <Link  >
                                     <Typography variant="h6">
                                         {' '}
                                         <Box  >
@@ -431,7 +426,7 @@ const Header = () => {
 
                                     </Typography>
                                 </Link>
-                                <Link to="/insights" >
+                                <Link  >
                                     <Typography variant="h6">
                                         {' '}
                                         <Box onClick={handleClick}
@@ -446,40 +441,10 @@ const Header = () => {
                                             onClick={handleClose}
                                             PaperProps={{
                                                 sx: {
-
-                                                    // border: '1px solid grey',
-                                                    // filter: 'drop-shadow(0px 1px 1px rgba(0,0,0,0.32))',
                                                     mt: 2.8,
                                                     '& .MuiList-root': {
                                                         display: 'flex',
-                                                        // padding: 0,
-                                                        // justifyContent: 'center',
-
-                                                        // '&. MuiMenu-list': {
-                                                        //     // padding: 0
-                                                        //     height: '1rem',
-                                                        // }
-
                                                     }
-                                                    // '& .MuiList-root-MuiMenu-list',
-                                                    // '& .MuiAvatar-root': {
-                                                    //     width: 32,
-                                                    //     height: 32,
-                                                    //     ml: -0.5,
-                                                    //     mr: 1,
-                                                    // },
-                                                    // '&:before': {
-                                                    //     content: '""',
-                                                    //     // display: 'flex',
-                                                    //     position: 'absolute',
-                                                    //     top: 0,
-                                                    //     right: 14,
-                                                    //     width: 10,
-                                                    //     height: 10,
-                                                    //     bgcolor: 'background.paper',
-                                                    //     transform: 'translateY(-50%) rotate(45deg)',
-                                                    //     zIndex: 0,
-                                                    // },
                                                 },
 
                                             }}
@@ -508,7 +473,7 @@ const Header = () => {
                                         </Menu>
                                     </Typography>
                                 </Link>
-                                <Link to="/groenestadchallenge"  >
+                                <Link  >
                                     <Typography variant="h6">
                                         {' '}
                                         <Box >
@@ -525,31 +490,6 @@ const Header = () => {
                                     </Typography>
                                 </Link>
                             </div>
-                            {/* <div>
-                                <Typography
-                                    variant="subtitle2"
-                                    style={{
-                                        color: 'black',
-                                        display: 'flex',
-                                    }}
-                                >
-                                    <Box style={{ marginRight: '1.8rem', marginTop: '0.4rem' }}>Powered by</Box>
-                                    <a
-                                        href="https://husqvarna.com"
-                                        target="_blank"
-                                    >
-                                        <img
-                                            src={husklog}
-                                            alt="Husqvarna logo"
-                                            style={{ width: '8rem', height: 'auto', marginTop: '0.4rem' }}
-                                        />
-                                    </a>
-                                </Typography>
-                            </div> */}
-
-                            {/* </div> */}
-                            {/* </Box> */}
-
                             <div>
                                 <span
                                     style={{

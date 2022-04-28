@@ -43,7 +43,7 @@ const Category = () => {
         details,
         questtooltip
     } = useStyles({});
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(null);
 
     const handleTooltipClose = () => {
         setOpen(false);
@@ -52,6 +52,9 @@ const Category = () => {
     const handleTooltipOpen = () => {
         setOpen(true);
     };
+
+    const [anchorEl, setAnchorEl] = React.useState(null);
+
 
     return (
         <div className={catdiv}>

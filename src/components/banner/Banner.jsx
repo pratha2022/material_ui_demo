@@ -12,7 +12,8 @@ const useStyles = makeStyles({
         marginTop: '2.2rem',
         display: 'flex',
         backgroundImage: `url(${background})`,
-        backgroundPosition: 'bottom',
+        // backgroundPosition: 'bottom',
+        backgroundSize:'cover',
         color: 'white'
     },
     box: {

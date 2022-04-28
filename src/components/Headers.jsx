@@ -159,8 +159,6 @@ const Headers = () => {
             >
                 <Toolbar className={roots}   >
 
-
-
                     <Typography
                         variant="h6"
                         noWrap
